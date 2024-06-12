@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let pokemon of pokemons" class="col-6">
+            <div class="card" [style.background-color]="getBackgroundColor(pokemon.types[0])">
+                <div class="card-header d-flex justify-content-between">
+                    <h4>{{ capitalizeFirstLetter(pokemon.name)}}</h4>
+                    <h5>#{{pokemon.order}}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="types col-6">
+                            <div *ngFor="let type of pokemon.types" class="col-6">
+                                <div class="tag" [style.background-color]="getTypeColor(type)">
+                                    {{capitalizeFirstLetter(type)}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sprite col-6">
+                            <img src="{{pokemon.sprite}}" alt="">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
