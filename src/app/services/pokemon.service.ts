@@ -15,11 +15,11 @@ export class PokemonService {
     return this.http.get<any>(`${this.baseUrl}${id}`).pipe(
       map(data => {
         const name = data.name;
-        const order = data.order;
+        const id = data.id;
         const sprite = data.sprites.other.showdown.front_default;
         const types = data.types.map((type: any) => type.type.name);
 
-        return {name, order, sprite, types} as Pokemon;
+        return {name, id, sprite, types} as Pokemon;
       }));
   }
 
@@ -35,10 +35,10 @@ export class PokemonService {
     return this.http.get<any>(url).pipe(
       map(data => {
         const name = data.name;
-        const order = data.order;
+        const id = data.id;
         const sprite = data.sprites.other.showdown.front_default;
         const types = data.types.map((type: any) => type.type.name);
-        return { name, order, sprite, types } as Pokemon;
+        return { name, id, sprite, types } as Pokemon;
       })
     );
   }
